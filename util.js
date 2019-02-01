@@ -1,12 +1,28 @@
-var add=(a,b)=>
-{
-return a+b;
+var add = (a, b) => {
+    return a + b;
 };
-var square=(a)=>
-{
-return a*a;
+var addASync = (a, b, callback) => {
+    setTimeout(() => {
+        callback(a + b);
+    }, 1000);
 };
-module.exports=
+var square = (a) => {
+    return a * a;
+};
+
+var setName = (user, fullName) => {
+    var names = fullName.split(' ');
+    user.firstname = names[0];
+    user.lastname = names[1];
+    return user;
+};
+var squareASync=(n,callback)=>
 {
-    add,square
+    setTimeout(() => {
+        callback(n*n);
+    }, 1000);
 }
+module.exports =
+    {
+        add, square, setName,addASync,squareASync
+    }
